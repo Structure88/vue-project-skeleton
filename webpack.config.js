@@ -16,5 +16,10 @@ module.exports = {
       inject: 'body',
       scriptLoading: 'blocking'
     })
-  ]
+  ],
+  devServer: {
+    contentBase: './dist',
+    port: 8080,
+    open: true
+  }
 };
