@@ -17,7 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           // 'style-loader',
           MiniCssExtractPlugin.loader,
@@ -25,14 +25,44 @@ module.exports = {
         ]
       },
       {
-        test: /\.s[ac]ss$/,
+        test: /\.s[ac]ss$/i,
         use: [
           // 'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
-      }
+      },
+
+      // // 所有的图片构建之后全部生成单个文件
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   type: 'asset/resource',
+      //   generator: {
+      //     filename: 'images/[hash][ext][query]'
+      //   }
+      // },
+
+      // // 所有的图片构建之后全部生成dataURL
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   type: 'asset/inline'
+      // },
+
+      // 所有的图片构建之后根据图片大小动态生成单个文件或者dataURL
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 5 * 1024 // 5kb
+          }
+        },
+        // 生成单个图片时保存的路径和文件名
+        generator: {
+          filename: 'images/[hash][ext][query]'
+        }
+      },
     ]
   },
 
