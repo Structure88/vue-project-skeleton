@@ -21,6 +21,14 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -32,7 +40,7 @@ module.exports = {
       scriptLoading: 'blocking'
     })
   ],
-  
+
   devServer: {
     contentBase: './dist',
     port: 8080,
