@@ -10,6 +10,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
