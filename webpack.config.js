@@ -33,7 +33,13 @@ module.exports = {
           'sass-loader'
         ]
       },
-
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
+      },
       // // 所有的图片构建之后全部生成单个文件
       // {
       //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
