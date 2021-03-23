@@ -2,7 +2,7 @@ import { add } from './util/add';
 import person from './data/person.json';
 
 import './assets/css/app.scss';
-import './assets/font/iconfont.css'
+import './assets/font/iconfont.css';
 
 import editIcon from './assets/image/edit.png';
 import mineIcon from './assets/image/mine.png';
